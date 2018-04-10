@@ -1,0 +1,1770 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     69857,       1761]
+NotebookOptionsPosition[     66295,       1652]
+NotebookOutlinePosition[     67902,       1703]
+CellTagsIndexPosition[     67574,       1691]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Hydrogen Atom Radial Functions", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4715271465910597`*^9, 3.4715271538240757`*^9}, {
+   3.471532669979856*^9, 3.471532672252945*^9}}],
+
+Cell["", "InitializationSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"L", "\[GreaterEqual]", "n"}], ",", 
+      RowBox[{"L", "=", 
+       RowBox[{"n", "-", "1"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"label", "=", 
+     RowBox[{"Which", "[", 
+      RowBox[{
+       RowBox[{"L", "\[Equal]", "0"}], ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<s\>\"", ",", "Italic"}], "]"}], ",", 
+       RowBox[{"L", "\[Equal]", "1"}], ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<p\>\"", ",", "Italic"}], "]"}], ",", 
+       RowBox[{"L", "\[Equal]", "2"}], ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<d\>\"", ",", "Italic"}], "]"}], ",", 
+       RowBox[{"L", "\[Equal]", "3"}], ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<f\>\"", ",", "Italic"}], "]"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"p1", "=", 
+     RowBox[{"Quiet", "[", 
+      RowBox[{"Plot", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"r", "^", "2"}], " ", 
+         RowBox[{
+          RowBox[{"R", "[", 
+           RowBox[{"n", ",", "L", ",", "r"}], "]"}], "^", "2"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"r", ",", "0", ",", 
+          RowBox[{"rmax", "[", 
+           RowBox[{"[", "n", "]"}], "]"}]}], "}"}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", 
+             RowBox[{"rmax", "[", 
+              RowBox[{"[", "n", "]"}], "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", 
+             RowBox[{"yrange", "[", 
+              RowBox[{"[", "n", "]"}], "]"}]}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+        RowBox[{"Ticks", "\[Rule]", 
+         RowBox[{"ticksmat", "[", 
+          RowBox[{"[", 
+           RowBox[{"n", ",", "1"}], "]"}], "]"}]}], ",", 
+        RowBox[{"TicksStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"16", ",", "Gray"}], "]"}]}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", "Thick"}], ",", 
+        RowBox[{"PlotLabel", "\[Rule]", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"Row", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"NumberForm", "[", 
+               RowBox[{"n", ",", "1"}], "]"}], ",", "label"}], "}"}], "]"}], 
+           ",", "18", ",", 
+           RowBox[{"Darker", "[", "Blue", "]"}]}], "]"}]}], ",", 
+        RowBox[{"AxesLabel", "\[Rule]", "label1"}]}], "]"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"av", "=", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", "Dashed", ",", "Blue", ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"rav", "[", 
+              RowBox[{"n", ",", "L"}], "]"}], ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"rav", "[", 
+              RowBox[{"n", ",", "L"}], "]"}], ",", 
+             RowBox[{"yrange", "[", 
+              RowBox[{"[", "n", "]"}], "]"}]}], "}"}]}], "}"}], "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Text", "[", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{"\"\<\[LeftAngleBracket]\>\"", ",", 
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<r\>\"", ",", "Italic"}], "]"}], ",", 
+               "\"\<\!\(\*SubscriptBox[\(\[RightAngleBracket]\), \(n, \\\ \
+l\)]\)\>\""}], "}"}], "]"}], ",", "18"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"1.48", " ", 
+             RowBox[{"rav", "[", 
+              RowBox[{"n", ",", "L"}], "]"}]}], ",", " ", 
+            RowBox[{".8", " ", 
+             RowBox[{"yrange", "[", 
+              RowBox[{"[", "n", "]"}], "]"}]}]}], " ", "}"}]}], "]"}]}], 
+       "}"}], "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"Pane", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"L", "<", "n"}], ",", 
+        RowBox[{"GraphicsRow", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Show", "[", 
+             RowBox[{"p1", ",", "av"}], "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Plot", "[", " ", 
+             RowBox[{
+              RowBox[{"R", "[", 
+               RowBox[{"n", ",", "L", ",", "r"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"r", ",", "0", ",", 
+                RowBox[{"rmax", "[", 
+                 RowBox[{"[", "n", "]"}], "]"}]}], "}"}], ",", 
+              RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+              RowBox[{"Ticks", "\[Rule]", 
+               RowBox[{"ticksmat", "[", 
+                RowBox[{"[", 
+                 RowBox[{"n", ",", "2"}], "]"}], "]"}]}], ",", 
+              RowBox[{"TicksStyle", "\[Rule]", 
+               RowBox[{"Directive", "[", 
+                RowBox[{"16", ",", "Gray"}], "]"}]}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Thick"}], ",", 
+              RowBox[{"AxesLabel", "\[Rule]", "label2"}]}], "]"}]}], "}"}], 
+          ",", 
+          RowBox[{"ImageSize", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"600", ",", "300"}], "}"}]}]}], "]"}], ","}], 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ImageSize", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"600", ",", "300"}], "}"}]}]}], "\[IndentingNewLine]", 
+     "]"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", "\"\<quantum numbers  n\>\""}], "}"}], ",", 
+     RowBox[{"Range", "[", "4", "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"L", ",", "0", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<l\>\"", ",", "Italic"}], "]"}]}], "}"}], ",", 
+     RowBox[{"Range", "[", 
+      RowBox[{"0", ",", 
+       RowBox[{"n", "-", "1"}]}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ControlType", "\[Rule]", "SetterBar"}], ",", 
+   RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "L"}], "}"}]}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Initialization", "\[RuleDelayed]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"F", "[", 
+        RowBox[{"n_", ",", "L_", ",", "x_"}], "]"}], ":=", 
+       RowBox[{
+        SuperscriptBox["x", "L"], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", "x"}], "/", "2"}]], " ", 
+        RowBox[{"Factorial", "[", 
+         RowBox[{"n", "+", "L"}], "]"}], " ", 
+        RowBox[{"LaguerreL", "[", 
+         RowBox[{
+          RowBox[{"n", "-", "L", "-", "1"}], ",", 
+          RowBox[{
+           RowBox[{"2", " ", "L"}], "+", "1"}], ",", "x"}], "]"}]}]}], ";", 
+      "\n", 
+      RowBox[{
+       RowBox[{"R", "[", 
+        RowBox[{"n_", ",", "L_", ",", "r_"}], "]"}], ":=", 
+       RowBox[{
+        RowBox[{"a", "^", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "3"}], "/", "2"}], ")"}]}], " ", 
+        RowBox[{"2", "/", 
+         RowBox[{"(", 
+          RowBox[{"n", "^", "2"}], ")"}]}], " ", 
+        SqrtBox[
+         FractionBox[
+          RowBox[{"Factorial", "[", 
+           RowBox[{"n", "-", "1", "-", "L"}], "]"}], 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"Factorial", "[", 
+             RowBox[{"n", "+", "L"}], "]"}], ")"}], "^", "3"}]]], " ", 
+        RowBox[{"F", "[", 
+         RowBox[{"n", ",", "L", ",", 
+          RowBox[{"2", " ", 
+           RowBox[{"r", "/", 
+            RowBox[{"(", 
+             RowBox[{"n", " ", "a"}], ")"}]}]}]}], "]"}]}]}], ";", "\n", 
+      RowBox[{
+       RowBox[{"rav", "[", 
+        RowBox[{"np_", ",", "Lp_"}], "]"}], ":=", 
+       RowBox[{
+        RowBox[{"np", "^", "2"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1.", "+", 
+          RowBox[{"0.5", " ", 
+           RowBox[{"(", 
+            RowBox[{"1.", "-", 
+             RowBox[{"Lp", " ", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"Lp", "+", "1."}], ")"}], "/", 
+               RowBox[{"(", 
+                RowBox[{"np", "^", "2"}], ")"}]}]}]}], ")"}]}]}], ")"}]}]}], 
+      ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"a", "=", "1"}], ";", " ", 
+      RowBox[{"(*", 
+       RowBox[{
+       "plots", " ", "in", " ", "units", " ", "of", " ", "Bohr", " ", 
+        "radius"}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"rmax", "=", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", "15", ",", "30", ",", "50", ",", "70"}], "}"}]}], 
+      ";", 
+      RowBox[{"yrange", "=", 
+       RowBox[{"{", 
+        RowBox[{".55", ",", ".2", ",", ".12", ",", ".07"}], "}"}]}], ";", 
+      "\n", 
+      RowBox[{"ticksmat", "=", 
+       RowBox[{"ConstantArray", "[", 
+        RowBox[{"0.", ",", 
+         RowBox[{"{", 
+          RowBox[{"5", ",", "2"}], "}"}]}], "]"}]}], ";", "\n", 
+      RowBox[{
+       RowBox[{"ticksmat", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "1"}], "]"}], "]"}], "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "2", ",", "4"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.25", ",", "0.5"}], "}"}]}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ticksmat", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "2"}], "]"}], "]"}], "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "2", ",", "4"}], "}"}], ",", "Automatic"}], 
+        "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ticksmat", "[", 
+        RowBox[{"[", 
+         RowBox[{"2", ",", "1"}], "]"}], "]"}], "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "6", ",", "12"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{".05", ",", ".15"}], "}"}]}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ticksmat", "[", 
+        RowBox[{"[", 
+         RowBox[{"2", ",", "2"}], "]"}], "]"}], "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "6", ",", "12"}], "}"}], ",", "Automatic"}], 
+        "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ticksmat", "[", 
+        RowBox[{"[", 
+         RowBox[{"3", ",", "1"}], "]"}], "]"}], "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "10", ",", "20"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{".05", ",", ".1"}], "}"}]}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ticksmat", "[", 
+        RowBox[{"[", 
+         RowBox[{"3", ",", "2"}], "]"}], "]"}], "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "10", ",", "20"}], "}"}], ",", "Automatic"}], 
+        "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ticksmat", "[", 
+        RowBox[{"[", 
+         RowBox[{"4", ",", "1"}], "]"}], "]"}], "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "20", ",", "40"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{".03", ",", ".06"}], "}"}]}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ticksmat", "[", 
+        RowBox[{"[", 
+         RowBox[{"4", ",", "2"}], "]"}], "]"}], "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "20", ",", "40"}], "}"}], ",", "Automatic"}], 
+        "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"label1", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Text", "[", 
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<r\>\"", ",", "Italic"}], "]"}], ",", 
+               "\"\< / \>\"", ",", 
+               SubscriptBox[
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<a\>\"", ",", "Italic"}], "]"}], "0"]}], "}"}], 
+             "]"}], ",", "18"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Text", "[", 
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<r\>\"", ",", "Italic"}], "]"}], "2"], ",", 
+               "\"\< \>\"", ",", 
+               SubscriptBox[
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<R\>\"", ",", "Italic"}], "]"}], 
+                RowBox[{"Row", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"Style", "[", 
+                    RowBox[{"\"\<n\>\"", ",", "Italic"}], "]"}], ",", 
+                   "\"\<, \>\"", ",", 
+                   RowBox[{"Style", "[", 
+                    RowBox[{"\"\<l\>\"", ",", "Italic"}], "]"}]}], "}"}], 
+                 "]"}]], ",", "\"\<(\>\"", ",", 
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<r\>\"", ",", "Italic"}], "]"}], ",", 
+               SuperscriptBox["\"\<)\>\"", "2"]}], "}"}], "]"}], ",", "18"}], 
+           "]"}], "]"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"label2", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Text", "[", 
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<r\>\"", ",", "Italic"}], "]"}], ",", 
+               "\"\< / \>\"", ",", 
+               SubscriptBox[
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<a\>\"", ",", "Italic"}], "]"}], "0"]}], "}"}], 
+             "]"}], ",", "18"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Text", "[", 
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               SubscriptBox[
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<R\>\"", ",", "Italic"}], "]"}], 
+                RowBox[{"Row", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"Style", "[", 
+                    RowBox[{"\"\<n\>\"", ",", "Italic"}], "]"}], ",", 
+                   "\"\<, \>\"", ",", 
+                   RowBox[{"Style", "[", 
+                    RowBox[{"\"\<l\>\"", ",", "Italic"}], "]"}]}], "}"}], 
+                 "]"}]], ",", "\"\<(\>\"", ",", 
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<r\>\"", ",", "Italic"}], "]"}], ",", 
+               "\"\<)\>\""}], "}"}], "]"}], ",", "18"}], "]"}], "]"}]}], 
+        "}"}]}]}], ")"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.471526924617481*^9, {3.471527111398872*^9, 
+   3.471527117625607*^9}, {3.47152997856595*^9, 3.471529985005755*^9}, {
+   3.471530052340499*^9, 3.471530119298229*^9}, {3.471530171273527*^9, 
+   3.471530319950478*^9}, {3.471530353511845*^9, 3.4715306626950417`*^9}, {
+   3.471530982964464*^9, 3.4715309897443323`*^9}, {3.47153106789889*^9, 
+   3.471531223893441*^9}, {3.4715312672944736`*^9, 3.471531760485228*^9}, {
+   3.4715318628526773`*^9, 3.471531887180256*^9}, {3.471532039832296*^9, 
+   3.471532069033556*^9}, 3.471532119344625*^9, {3.471532197440914*^9, 
+   3.471532244134674*^9}, {3.4715322825387497`*^9, 3.471532300872241*^9}, {
+   3.4717882707032714`*^9, 3.471788349861041*^9}, {3.4717884060339947`*^9, 
+   3.4717885299426236`*^9}, {3.4717886036940393`*^9, 3.471788619163087*^9}, {
+   3.471789060952819*^9, 3.471789162689147*^9}, {3.4717898531867795`*^9, 
+   3.47178987196839*^9}, {3.4717899084690905`*^9, 3.4717899685483694`*^9}, {
+   3.4718141467571373`*^9, 3.471814147707396*^9}, {3.471814188629743*^9, 
+   3.4718141896591454`*^9}, 3.4718144248196363`*^9, 3.471814533902822*^9, {
+   3.471814571997334*^9, 3.4718146004058743`*^9}, {3.568654089867972*^9, 
+   3.5686540919203253`*^9}, 3.5686541519240837`*^9, {3.568654329129099*^9, 
+   3.56865433618979*^9}, 3.5686543787766027`*^9, {3.5695164939194813`*^9, 
+   3.569516518948078*^9}, {3.56951655408696*^9, 3.569516594057761*^9}, {
+   3.56951663065516*^9, 3.5695166383026333`*^9}, 3.569516675326889*^9, 
+   3.569516711227161*^9, {3.569516748126124*^9, 3.569516750128183*^9}, {
+   3.5695168153739853`*^9, 3.56951682823663*^9}, {3.5695168638294363`*^9, 
+   3.569516935710598*^9}, 3.569517588843873*^9, {3.569518651538414*^9, 
+   3.569518673939867*^9}, 3.569523441562607*^9, 3.569523482456785*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`L$$ = 0, $CellContext`n$$ = 1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 1, "quantum numbers  n"}, {1, 2, 3, 4}}, {{
+       Hold[$CellContext`L$$], 0, 
+       Style["l", Italic]}, 
+      Dynamic[
+       Range[0, $CellContext`n$$ - 1]]}}, Typeset`size$$ = {
+    600., {147., 153.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`n$70431$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`L$$ = 0, $CellContext`n$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$70431$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`L$$ >= $CellContext`n$$, $CellContext`L$$ = \
+$CellContext`n$$ - 1]; $CellContext`label = Which[$CellContext`L$$ == 0, 
+          Style["s", Italic], $CellContext`L$$ == 1, 
+          Style["p", Italic], $CellContext`L$$ == 2, 
+          Style["d", Italic], $CellContext`L$$ == 3, 
+          Style["f", Italic]]; $CellContext`p1 = Quiet[
+          
+          Plot[$CellContext`r^2 $CellContext`R[$CellContext`n$$, \
+$CellContext`L$$, $CellContext`r]^2, {$CellContext`r, 0, 
+            Part[$CellContext`rmax, $CellContext`n$$]}, PlotRange -> {{0, 
+              Part[$CellContext`rmax, $CellContext`n$$]}, {0, 
+              Part[$CellContext`yrange, $CellContext`n$$]}}, Filling -> Axis, 
+           Ticks -> Part[$CellContext`ticksmat, $CellContext`n$$, 1], 
+           TicksStyle -> Directive[16, Gray], PlotStyle -> Thick, PlotLabel -> 
+           Style[
+             Row[{
+               NumberForm[$CellContext`n$$, 1], $CellContext`label}], 18, 
+             Darker[Blue]], 
+           AxesLabel -> $CellContext`label1]]; $CellContext`av = 
+        Graphics[{Thick, Dashed, Blue, 
+           Line[{{
+              $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 0}, {
+              $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 
+              Part[$CellContext`yrange, $CellContext`n$$]}}], 
+           Text[
+            Style[
+             Row[{"\[LeftAngleBracket]", 
+               Style["r", Italic], 
+               "\!\(\*SubscriptBox[\(\[RightAngleBracket]\), \(n, \\ \
+l\)]\)"}], 18], {
+            1.48 $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 0.8 
+             Part[$CellContext`yrange, $CellContext`n$$]}]}]; Pane[
+         If[$CellContext`L$$ < $CellContext`n$$, 
+          GraphicsRow[{
+            Show[$CellContext`p1, $CellContext`av], 
+            Plot[
+             $CellContext`R[$CellContext`n$$, $CellContext`L$$, \
+$CellContext`r], {$CellContext`r, 0, 
+              Part[$CellContext`rmax, $CellContext`n$$]}, PlotRange -> All, 
+             Ticks -> Part[$CellContext`ticksmat, $CellContext`n$$, 2], 
+             TicksStyle -> Directive[16, Gray], PlotStyle -> Thick, 
+             AxesLabel -> $CellContext`label2]}, ImageSize -> {600, 300}], 
+          Null], ImageSize -> {600, 300}]), 
+      "Specifications" :> {{{$CellContext`n$$, 1, "quantum numbers  n"}, {1, 
+         2, 3, 4}}, {{$CellContext`L$$, 0, 
+          Style["l", Italic]}, 
+         Dynamic[
+          Range[0, $CellContext`n$$ - 1]]}}, 
+      "Options" :> {
+       ControlType -> SetterBar, 
+        TrackedSymbols :> {$CellContext`n$$, $CellContext`L$$}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{643., {201., 206.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`F[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^$CellContext`L E^((-$CellContext`x)/2) 
+        Factorial[$CellContext`n + $CellContext`L] 
+        LaguerreL[$CellContext`n - $CellContext`L - 1, 2 $CellContext`L + 
+          1, $CellContext`x]; $CellContext`R[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`r, 
+          Blank[]]] := $CellContext`a^((-3)/2) (
+         2/$CellContext`n^2) (Factorial[$CellContext`n - 1 - $CellContext`L]/
+          Factorial[$CellContext`n + $CellContext`L]^3)^
+         Rational[1, 2] $CellContext`F[$CellContext`n, $CellContext`L, 
+          2 ($CellContext`r/($CellContext`n $CellContext`a))]; \
+$CellContext`rav[
+         Pattern[$CellContext`np, 
+          Blank[]], 
+         Pattern[$CellContext`Lp, 
+          Blank[]]] := $CellContext`np^2 (1. + 
+         0.5 (1. - $CellContext`Lp (($CellContext`Lp + 
+             1.)/$CellContext`np^2))); $CellContext`a = 
+       1; $CellContext`rmax = {5, 15, 30, 50, 70}; $CellContext`yrange = {
+        0.55, 0.2, 0.12, 0.07}; $CellContext`ticksmat = 
+       ConstantArray[0., {5, 2}]; 
+      Part[$CellContext`ticksmat, 1, 1] = {{0, 2, 4}, {0.25, 0.5}}; 
+      Part[$CellContext`ticksmat, 1, 2] = {{0, 2, 4}, Automatic}; 
+      Part[$CellContext`ticksmat, 2, 1] = {{0, 6, 12}, {0.05, 0.15}}; 
+      Part[$CellContext`ticksmat, 2, 2] = {{0, 6, 12}, Automatic}; 
+      Part[$CellContext`ticksmat, 3, 1] = {{0, 10, 20}, {0.05, 0.1}}; 
+      Part[$CellContext`ticksmat, 3, 2] = {{0, 10, 20}, Automatic}; 
+      Part[$CellContext`ticksmat, 4, 1] = {{0, 20, 40}, {0.03, 0.06}}; 
+      Part[$CellContext`ticksmat, 4, 2] = {{0, 20, 40}, 
+         Automatic}; $CellContext`label1 = {
+         Text[
+          Style[
+           Row[{
+             Style["r", Italic], " / ", 
+             Subscript[
+              Style["a", Italic], 0]}], 18]], 
+         Text[
+          Style[
+           Row[{Style["r", Italic]^2, " ", 
+             Subscript[
+              Style["R", Italic], 
+              Row[{
+                Style["n", Italic], ", ", 
+                Style["l", Italic]}]], "(", 
+             Style["r", Italic], ")"^2}], 18]]}; $CellContext`label2 = {
+         Text[
+          Style[
+           Row[{
+             Style["r", Italic], " / ", 
+             Subscript[
+              Style["a", Italic], 0]}], 18]], 
+         Text[
+          Style[
+           Row[{
+             Subscript[
+              Style["R", Italic], 
+              Row[{
+                Style["n", Italic], ", ", 
+                Style["l", Italic]}]], "(", 
+             Style["r", Italic], ")"}], 18]]}); Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.569523769814023*^9},
+ CellID->1940978731]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell[TextData[{
+ "The eigenfunctions in spherical coordinates for the hydrogen atom are ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[Phi]", 
+      RowBox[{"n", ",", 
+       RowBox[{"\[ScriptL]", ".", "m"}]}]], "(", 
+     RowBox[{"r", ",", "\[Theta]", ",", "\[CurlyPhi]"}], ")"}], "=", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["R", 
+       RowBox[{"n", ",", "\[ScriptL]"}]], "(", "r", ")"}], 
+     RowBox[{
+      SubsuperscriptBox["Y", "\[ScriptL]", "m"], "(", 
+      RowBox[{"\[Theta]", ",", "\[CurlyPhi]"}], ")"}]}]}], TraditionalForm]], 
+  "InlineMath"],
+ ", where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["R", 
+     RowBox[{"n", ",", "\[ScriptL]"}]], "(", "r", ")"}], TraditionalForm]], 
+  "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubsuperscriptBox["Y", "\[ScriptL]", "m"], "(", 
+    RowBox[{"\[Theta]", ",", "\[CurlyPhi]"}], ")"}], TraditionalForm]], 
+  "InlineMath"],
+ " are the solutions to the radial and angular parts of the \
+Schr\[ODoubleDot]dinger equation, respectively, and ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox["\[ScriptL]", TraditionalForm]], "InlineMath"],
+ ", and ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]], "InlineMath"],
+ " are the principal, orbital, and magnetic quantum numbers with allowed \
+values  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"n", "=", "0"}], ",", "1", ",", "2", ",", "\[Ellipsis]", ",", 
+    RowBox[{"n", "-", "1"}], ","}], TraditionalForm]], "InlineMath"],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[ScriptL]", "=", "0"}], ",", "1", ",", "2", ",", "\[Ellipsis]", 
+    ",", 
+    RowBox[{"n", "-", "1"}]}], TraditionalForm]], "InlineMath"],
+ ", and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"m", "=", "0"}], ",", 
+    RowBox[{"\[PlusMinus]", "1"}], ",", 
+    RowBox[{"\[PlusMinus]", "2"}], ",", "\[Ellipsis]", ",", 
+    RowBox[{"\[PlusMinus]", "\[ScriptL]"}]}], TraditionalForm]], "InlineMath"],
+ ". The ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubsuperscriptBox["Y", "\[ScriptL]", "m"], "(", 
+    RowBox[{"\[Theta]", ",", "\[CurlyPhi]"}], ")"}], TraditionalForm]], 
+  "InlineMath"],
+ " are the spherical harmonics and the radial functions are ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["R", 
+      RowBox[{"n", ",", "\[ScriptL]"}]], "(", "r", ")"}], "=", 
+    RowBox[{
+     SqrtBox[
+      FractionBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"n", "-", "1", "-", "\[ScriptL]"}], ")"}], "!"}], 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         RowBox[{"n", " ", "[", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"n", "+", "\[ScriptL]"}], ")"}], "!"}], "]"}], "3"]}]]], 
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox["2", 
+        RowBox[{"n", " ", 
+         SubscriptBox["a", "0"]}]], ")"}], 
+      RowBox[{"\[ScriptL]", "+", 
+       RowBox[{"3", "/", "2"}]}]], 
+     SuperscriptBox["r", "\[ScriptL]"], 
+     SuperscriptBox["e", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "r"}], "/", "n"}], " ", 
+       SubscriptBox["a", "0"]}]], 
+     RowBox[{
+      SubsuperscriptBox["L", 
+       RowBox[{"n", "+", "\[ScriptL]"}], 
+       RowBox[{
+        RowBox[{"2", " ", "\[ScriptL]"}], "+", "1"}]], "(", 
+      RowBox[{"2", " ", 
+       RowBox[{"r", "/", "n"}], " ", 
+       SubscriptBox["a", "0"]}], ")"}]}]}], TraditionalForm]], "InlineMath"],
+ ", where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubsuperscriptBox["L", "p", "a"], "(", "x", ")"}], TraditionalForm]], 
+  "InlineMath"],
+ " is the ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["p", "th"], TraditionalForm]], "InlineMath"],
+ "-order associated Laguerre polynomial and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["a", "0"], TraditionalForm]], "InlineMath"],
+ " is the Bohr radius. The left graphic shows the radial probability density ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["r", "2"], "|", 
+    RowBox[{
+     SubscriptBox["R", 
+      RowBox[{"n", ",", "\[ScriptL]"}]], "(", "r", ")"}], 
+    SuperscriptBox["|", "2"]}], TraditionalForm]], "InlineMath"],
+ " and the expectation value ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox[
+      RowBox[{"\[LeftAngleBracket]", "r", "\[RightAngleBracket]"}], 
+      RowBox[{"n", ",", "\[ScriptL]"}]], "\[Congruent]", 
+     RowBox[{"\[LeftAngleBracket]", 
+      RowBox[{
+       SubscriptBox["\[Phi]", 
+        RowBox[{"n", ",", 
+         RowBox[{"\[ScriptL]", ".", "m"}]}]], "|", "r", "|", 
+       SubscriptBox["\[Phi]", 
+        RowBox[{"n", ",", 
+         RowBox[{"\[ScriptL]", ".", "m"}]}]]}], "\[RightAngleBracket]"}]}], 
+    "=", 
+    RowBox[{
+     SuperscriptBox["n", "2"], 
+     RowBox[{
+      SubscriptBox["a", "0"], "[", 
+      RowBox[{"1", "+", 
+       RowBox[{
+        FractionBox["1", "2"], 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          FractionBox[
+           RowBox[{"\[ScriptL]", "(", 
+            RowBox[{"\[ScriptL]", "+", "1"}], ")"}], 
+           SuperscriptBox["n", "2"]]}], ")"}]}]}], "]"}]}]}], 
+   TraditionalForm]], "InlineMath"],
+ ", and the right graphic shows the radial function."
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.471529068929021*^9, 3.4715293165026093`*^9}, {
+   3.4715293831639*^9, 3.471529437061977*^9}, {3.4715295487840357`*^9, 
+   3.47152981401045*^9}, {3.47152985069398*^9, 3.4715298662521133`*^9}, {
+   3.471789183048913*^9, 3.471789183048913*^9}, {3.471789525117981*^9, 
+   3.4717895308993416`*^9}, {3.4717895892285867`*^9, 
+   3.4717898109047174`*^9}, {3.471814078224716*^9, 3.4718140791921043`*^9}, {
+   3.4718889185129423`*^9, 3.471888972939502*^9}},
+ CellID->47933019]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`L$$ = 2, $CellContext`n$$ = 3, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 3, "quantum numbers  n"}, {1, 2, 3, 4}}, {{
+       Hold[$CellContext`L$$], 2, 
+       Style["l", Italic]}, 
+      Dynamic[
+       Range[0, $CellContext`n$$ - 1]]}}, Typeset`size$$ = {
+    600., {147., 153.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`n$69255$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`L$$ = 2, $CellContext`n$$ = 3}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$69255$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`L$$ >= $CellContext`n$$, $CellContext`L$$ = \
+$CellContext`n$$ - 1]; $CellContext`label = Which[$CellContext`L$$ == 0, 
+          Style["s", Italic], $CellContext`L$$ == 1, 
+          Style["p", Italic], $CellContext`L$$ == 2, 
+          Style["d", Italic], $CellContext`L$$ == 3, 
+          Style["f", Italic]]; $CellContext`p1 = Quiet[
+          
+          Plot[$CellContext`r^2 $CellContext`R[$CellContext`n$$, \
+$CellContext`L$$, $CellContext`r]^2, {$CellContext`r, 0, 
+            Part[$CellContext`rmax, $CellContext`n$$]}, PlotRange -> {{0, 
+              Part[$CellContext`rmax, $CellContext`n$$]}, {0, 
+              Part[$CellContext`yrange, $CellContext`n$$]}}, Filling -> Axis, 
+           Ticks -> Part[$CellContext`ticksmat, $CellContext`n$$, 1], 
+           TicksStyle -> Directive[16, Gray], PlotStyle -> Thick, PlotLabel -> 
+           Style[
+             Row[{
+               NumberForm[$CellContext`n$$, 1], $CellContext`label}], 18, 
+             Darker[Blue]], 
+           AxesLabel -> $CellContext`label1]]; $CellContext`av = 
+        Graphics[{Thick, Dashed, Blue, 
+           Line[{{
+              $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 0}, {
+              $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 
+              Part[$CellContext`yrange, $CellContext`n$$]}}], 
+           Text[
+            Style[
+             Row[{"\[LeftAngleBracket]", 
+               Style["r", Italic], 
+               "\!\(\*SubscriptBox[\(\[RightAngleBracket]\), \(n,  l\)]\)"}], 
+             18], {1.48 $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 
+             0.8 Part[$CellContext`yrange, $CellContext`n$$]}]}]; Pane[
+         If[$CellContext`L$$ < $CellContext`n$$, 
+          GraphicsRow[{
+            Show[$CellContext`p1, $CellContext`av], 
+            Plot[
+             $CellContext`R[$CellContext`n$$, $CellContext`L$$, \
+$CellContext`r], {$CellContext`r, 0, 
+              Part[$CellContext`rmax, $CellContext`n$$]}, PlotRange -> All, 
+             Ticks -> Part[$CellContext`ticksmat, $CellContext`n$$, 2], 
+             TicksStyle -> Directive[16, Gray], PlotStyle -> Thick, 
+             AxesLabel -> $CellContext`label2]}, ImageSize -> {600, 300}], 
+          Null], ImageSize -> {600, 300}]), 
+      "Specifications" :> {{{$CellContext`n$$, 3, "quantum numbers  n"}, {1, 
+         2, 3, 4}}, {{$CellContext`L$$, 2, 
+          Style["l", Italic]}, 
+         Dynamic[
+          Range[0, $CellContext`n$$ - 1]]}}, 
+      "Options" :> {
+       ControlType -> SetterBar, 
+        TrackedSymbols :> {$CellContext`n$$, $CellContext`L$$}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{643., {202., 207.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`F[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := (($CellContext`x^$CellContext`L 
+          E^((-$CellContext`x)/2)) Factorial[$CellContext`n + $CellContext`L])
+          LaguerreL[$CellContext`n - $CellContext`L - 1, 2 $CellContext`L + 
+          1, $CellContext`x]; $CellContext`R[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`r, 
+          
+          Blank[]]] := (($CellContext`a^((-3)/2) (2/$CellContext`n^2)) (
+           Factorial[$CellContext`n - 1 - $CellContext`L]/
+           Factorial[$CellContext`n + $CellContext`L]^3)^
+          Rational[1, 2]) $CellContext`F[$CellContext`n, $CellContext`L, 
+          2 ($CellContext`r/($CellContext`n $CellContext`a))]; \
+$CellContext`rav[
+         Pattern[$CellContext`np, 
+          Blank[]], 
+         Pattern[$CellContext`Lp, 
+          Blank[]]] := $CellContext`np^2 (1. + 
+         0.5 (1. - $CellContext`Lp (($CellContext`Lp + 
+             1.)/$CellContext`np^2))); $CellContext`a = 
+       1; $CellContext`rmax = {5, 15, 30, 50, 70}; $CellContext`yrange = {
+        0.55, 0.2, 0.12, 0.07}; $CellContext`ticksmat = 
+       ConstantArray[0., {5, 2}]; 
+      Part[$CellContext`ticksmat, 1, 1] = {{0, 2, 4}, {0.25, 0.5}}; 
+      Part[$CellContext`ticksmat, 1, 2] = {{0, 2, 4}, Automatic}; 
+      Part[$CellContext`ticksmat, 2, 1] = {{0, 6, 12}, {0.05, 0.15}}; 
+      Part[$CellContext`ticksmat, 2, 2] = {{0, 6, 12}, Automatic}; 
+      Part[$CellContext`ticksmat, 3, 1] = {{0, 10, 20}, {0.05, 0.1}}; 
+      Part[$CellContext`ticksmat, 3, 2] = {{0, 10, 20}, Automatic}; 
+      Part[$CellContext`ticksmat, 4, 1] = {{0, 20, 40}, {0.03, 0.06}}; 
+      Part[$CellContext`ticksmat, 4, 2] = {{0, 20, 40}, 
+         Automatic}; $CellContext`label1 = {
+         Text[
+          Style[
+           Row[{
+             Style["r", Italic], " / ", 
+             Subscript[
+              Style["a", Italic], 0]}], 18]], 
+         Text[
+          Style[
+           Row[{Style["r", Italic]^2, " ", 
+             Subscript[
+              Style["R", Italic], 
+              Row[{
+                Style["n", Italic], ", ", 
+                Style["l", Italic]}]], "(", 
+             Style["r", Italic], ")"^2}], 18]]}; $CellContext`label2 = {
+         Text[
+          Style[
+           Row[{
+             Style["r", Italic], " / ", 
+             Subscript[
+              Style["a", Italic], 0]}], 18]], 
+         Text[
+          Style[
+           Row[{
+             Subscript[
+              Style["R", Italic], 
+              Row[{
+                Style["n", Italic], ", ", 
+                Style["l", Italic]}]], "(", 
+             Style["r", Italic], ")"}], 18]]}); Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1957055702]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`L$$ = 1, $CellContext`n$$ = 3, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 3, "quantum numbers  n"}, {1, 2, 3, 4}}, {{
+       Hold[$CellContext`L$$], 1, 
+       Style["l", Italic]}, 
+      Dynamic[
+       Range[0, $CellContext`n$$ - 1]]}}, Typeset`size$$ = {
+    600., {147., 153.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`n$69306$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`L$$ = 1, $CellContext`n$$ = 3}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$69306$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`L$$ >= $CellContext`n$$, $CellContext`L$$ = \
+$CellContext`n$$ - 1]; $CellContext`label = Which[$CellContext`L$$ == 0, 
+          Style["s", Italic], $CellContext`L$$ == 1, 
+          Style["p", Italic], $CellContext`L$$ == 2, 
+          Style["d", Italic], $CellContext`L$$ == 3, 
+          Style["f", Italic]]; $CellContext`p1 = Quiet[
+          
+          Plot[$CellContext`r^2 $CellContext`R[$CellContext`n$$, \
+$CellContext`L$$, $CellContext`r]^2, {$CellContext`r, 0, 
+            Part[$CellContext`rmax, $CellContext`n$$]}, PlotRange -> {{0, 
+              Part[$CellContext`rmax, $CellContext`n$$]}, {0, 
+              Part[$CellContext`yrange, $CellContext`n$$]}}, Filling -> Axis, 
+           Ticks -> Part[$CellContext`ticksmat, $CellContext`n$$, 1], 
+           TicksStyle -> Directive[16, Gray], PlotStyle -> Thick, PlotLabel -> 
+           Style[
+             Row[{
+               NumberForm[$CellContext`n$$, 1], $CellContext`label}], 18, 
+             Darker[Blue]], 
+           AxesLabel -> $CellContext`label1]]; $CellContext`av = 
+        Graphics[{Thick, Dashed, Blue, 
+           Line[{{
+              $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 0}, {
+              $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 
+              Part[$CellContext`yrange, $CellContext`n$$]}}], 
+           Text[
+            Style[
+             Row[{"\[LeftAngleBracket]", 
+               Style["r", Italic], 
+               "\!\(\*SubscriptBox[\(\[RightAngleBracket]\), \(n,  l\)]\)"}], 
+             18], {1.48 $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 
+             0.8 Part[$CellContext`yrange, $CellContext`n$$]}]}]; Pane[
+         If[$CellContext`L$$ < $CellContext`n$$, 
+          GraphicsRow[{
+            Show[$CellContext`p1, $CellContext`av], 
+            Plot[
+             $CellContext`R[$CellContext`n$$, $CellContext`L$$, \
+$CellContext`r], {$CellContext`r, 0, 
+              Part[$CellContext`rmax, $CellContext`n$$]}, PlotRange -> All, 
+             Ticks -> Part[$CellContext`ticksmat, $CellContext`n$$, 2], 
+             TicksStyle -> Directive[16, Gray], PlotStyle -> Thick, 
+             AxesLabel -> $CellContext`label2]}, ImageSize -> {600, 300}], 
+          Null], ImageSize -> {600, 300}]), 
+      "Specifications" :> {{{$CellContext`n$$, 3, "quantum numbers  n"}, {1, 
+         2, 3, 4}}, {{$CellContext`L$$, 1, 
+          Style["l", Italic]}, 
+         Dynamic[
+          Range[0, $CellContext`n$$ - 1]]}}, 
+      "Options" :> {
+       ControlType -> SetterBar, 
+        TrackedSymbols :> {$CellContext`n$$, $CellContext`L$$}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{643., {202., 207.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`F[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := (($CellContext`x^$CellContext`L 
+          E^((-$CellContext`x)/2)) Factorial[$CellContext`n + $CellContext`L])
+          LaguerreL[$CellContext`n - $CellContext`L - 1, 2 $CellContext`L + 
+          1, $CellContext`x]; $CellContext`R[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`r, 
+          
+          Blank[]]] := (($CellContext`a^((-3)/2) (2/$CellContext`n^2)) (
+           Factorial[$CellContext`n - 1 - $CellContext`L]/
+           Factorial[$CellContext`n + $CellContext`L]^3)^
+          Rational[1, 2]) $CellContext`F[$CellContext`n, $CellContext`L, 
+          2 ($CellContext`r/($CellContext`n $CellContext`a))]; \
+$CellContext`rav[
+         Pattern[$CellContext`np, 
+          Blank[]], 
+         Pattern[$CellContext`Lp, 
+          Blank[]]] := $CellContext`np^2 (1. + 
+         0.5 (1. - $CellContext`Lp (($CellContext`Lp + 
+             1.)/$CellContext`np^2))); $CellContext`a = 
+       1; $CellContext`rmax = {5, 15, 30, 50, 70}; $CellContext`yrange = {
+        0.55, 0.2, 0.12, 0.07}; $CellContext`ticksmat = 
+       ConstantArray[0., {5, 2}]; 
+      Part[$CellContext`ticksmat, 1, 1] = {{0, 2, 4}, {0.25, 0.5}}; 
+      Part[$CellContext`ticksmat, 1, 2] = {{0, 2, 4}, Automatic}; 
+      Part[$CellContext`ticksmat, 2, 1] = {{0, 6, 12}, {0.05, 0.15}}; 
+      Part[$CellContext`ticksmat, 2, 2] = {{0, 6, 12}, Automatic}; 
+      Part[$CellContext`ticksmat, 3, 1] = {{0, 10, 20}, {0.05, 0.1}}; 
+      Part[$CellContext`ticksmat, 3, 2] = {{0, 10, 20}, Automatic}; 
+      Part[$CellContext`ticksmat, 4, 1] = {{0, 20, 40}, {0.03, 0.06}}; 
+      Part[$CellContext`ticksmat, 4, 2] = {{0, 20, 40}, 
+         Automatic}; $CellContext`label1 = {
+         Text[
+          Style[
+           Row[{
+             Style["r", Italic], " / ", 
+             Subscript[
+              Style["a", Italic], 0]}], 18]], 
+         Text[
+          Style[
+           Row[{Style["r", Italic]^2, " ", 
+             Subscript[
+              Style["R", Italic], 
+              Row[{
+                Style["n", Italic], ", ", 
+                Style["l", Italic]}]], "(", 
+             Style["r", Italic], ")"^2}], 18]]}; $CellContext`label2 = {
+         Text[
+          Style[
+           Row[{
+             Style["r", Italic], " / ", 
+             Subscript[
+              Style["a", Italic], 0]}], 18]], 
+         Text[
+          Style[
+           Row[{
+             Subscript[
+              Style["R", Italic], 
+              Row[{
+                Style["n", Italic], ", ", 
+                Style["l", Italic]}]], "(", 
+             Style["r", Italic], ")"}], 18]]}); Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1375646062],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`L$$ = 3, $CellContext`n$$ = 4, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 4, "quantum numbers  n"}, {1, 2, 3, 4}}, {{
+       Hold[$CellContext`L$$], 3, 
+       Style["l", Italic]}, 
+      Dynamic[
+       Range[0, $CellContext`n$$ - 1]]}}, Typeset`size$$ = {
+    600., {147., 153.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`n$69357$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`L$$ = 3, $CellContext`n$$ = 4}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$69357$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`L$$ >= $CellContext`n$$, $CellContext`L$$ = \
+$CellContext`n$$ - 1]; $CellContext`label = Which[$CellContext`L$$ == 0, 
+          Style["s", Italic], $CellContext`L$$ == 1, 
+          Style["p", Italic], $CellContext`L$$ == 2, 
+          Style["d", Italic], $CellContext`L$$ == 3, 
+          Style["f", Italic]]; $CellContext`p1 = Quiet[
+          
+          Plot[$CellContext`r^2 $CellContext`R[$CellContext`n$$, \
+$CellContext`L$$, $CellContext`r]^2, {$CellContext`r, 0, 
+            Part[$CellContext`rmax, $CellContext`n$$]}, PlotRange -> {{0, 
+              Part[$CellContext`rmax, $CellContext`n$$]}, {0, 
+              Part[$CellContext`yrange, $CellContext`n$$]}}, Filling -> Axis, 
+           Ticks -> Part[$CellContext`ticksmat, $CellContext`n$$, 1], 
+           TicksStyle -> Directive[16, Gray], PlotStyle -> Thick, PlotLabel -> 
+           Style[
+             Row[{
+               NumberForm[$CellContext`n$$, 1], $CellContext`label}], 18, 
+             Darker[Blue]], 
+           AxesLabel -> $CellContext`label1]]; $CellContext`av = 
+        Graphics[{Thick, Dashed, Blue, 
+           Line[{{
+              $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 0}, {
+              $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 
+              Part[$CellContext`yrange, $CellContext`n$$]}}], 
+           Text[
+            Style[
+             Row[{"\[LeftAngleBracket]", 
+               Style["r", Italic], 
+               "\!\(\*SubscriptBox[\(\[RightAngleBracket]\), \(n,  l\)]\)"}], 
+             18], {1.48 $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 
+             0.8 Part[$CellContext`yrange, $CellContext`n$$]}]}]; Pane[
+         If[$CellContext`L$$ < $CellContext`n$$, 
+          GraphicsRow[{
+            Show[$CellContext`p1, $CellContext`av], 
+            Plot[
+             $CellContext`R[$CellContext`n$$, $CellContext`L$$, \
+$CellContext`r], {$CellContext`r, 0, 
+              Part[$CellContext`rmax, $CellContext`n$$]}, PlotRange -> All, 
+             Ticks -> Part[$CellContext`ticksmat, $CellContext`n$$, 2], 
+             TicksStyle -> Directive[16, Gray], PlotStyle -> Thick, 
+             AxesLabel -> $CellContext`label2]}, ImageSize -> {600, 300}], 
+          Null], ImageSize -> {600, 300}]), 
+      "Specifications" :> {{{$CellContext`n$$, 4, "quantum numbers  n"}, {1, 
+         2, 3, 4}}, {{$CellContext`L$$, 3, 
+          Style["l", Italic]}, 
+         Dynamic[
+          Range[0, $CellContext`n$$ - 1]]}}, 
+      "Options" :> {
+       ControlType -> SetterBar, 
+        TrackedSymbols :> {$CellContext`n$$, $CellContext`L$$}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{643., {202., 207.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`F[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := (($CellContext`x^$CellContext`L 
+          E^((-$CellContext`x)/2)) Factorial[$CellContext`n + $CellContext`L])
+          LaguerreL[$CellContext`n - $CellContext`L - 1, 2 $CellContext`L + 
+          1, $CellContext`x]; $CellContext`R[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`r, 
+          
+          Blank[]]] := (($CellContext`a^((-3)/2) (2/$CellContext`n^2)) (
+           Factorial[$CellContext`n - 1 - $CellContext`L]/
+           Factorial[$CellContext`n + $CellContext`L]^3)^
+          Rational[1, 2]) $CellContext`F[$CellContext`n, $CellContext`L, 
+          2 ($CellContext`r/($CellContext`n $CellContext`a))]; \
+$CellContext`rav[
+         Pattern[$CellContext`np, 
+          Blank[]], 
+         Pattern[$CellContext`Lp, 
+          Blank[]]] := $CellContext`np^2 (1. + 
+         0.5 (1. - $CellContext`Lp (($CellContext`Lp + 
+             1.)/$CellContext`np^2))); $CellContext`a = 
+       1; $CellContext`rmax = {5, 15, 30, 50, 70}; $CellContext`yrange = {
+        0.55, 0.2, 0.12, 0.07}; $CellContext`ticksmat = 
+       ConstantArray[0., {5, 2}]; 
+      Part[$CellContext`ticksmat, 1, 1] = {{0, 2, 4}, {0.25, 0.5}}; 
+      Part[$CellContext`ticksmat, 1, 2] = {{0, 2, 4}, Automatic}; 
+      Part[$CellContext`ticksmat, 2, 1] = {{0, 6, 12}, {0.05, 0.15}}; 
+      Part[$CellContext`ticksmat, 2, 2] = {{0, 6, 12}, Automatic}; 
+      Part[$CellContext`ticksmat, 3, 1] = {{0, 10, 20}, {0.05, 0.1}}; 
+      Part[$CellContext`ticksmat, 3, 2] = {{0, 10, 20}, Automatic}; 
+      Part[$CellContext`ticksmat, 4, 1] = {{0, 20, 40}, {0.03, 0.06}}; 
+      Part[$CellContext`ticksmat, 4, 2] = {{0, 20, 40}, 
+         Automatic}; $CellContext`label1 = {
+         Text[
+          Style[
+           Row[{
+             Style["r", Italic], " / ", 
+             Subscript[
+              Style["a", Italic], 0]}], 18]], 
+         Text[
+          Style[
+           Row[{Style["r", Italic]^2, " ", 
+             Subscript[
+              Style["R", Italic], 
+              Row[{
+                Style["n", Italic], ", ", 
+                Style["l", Italic]}]], "(", 
+             Style["r", Italic], ")"^2}], 18]]}; $CellContext`label2 = {
+         Text[
+          Style[
+           Row[{
+             Style["r", Italic], " / ", 
+             Subscript[
+              Style["a", Italic], 0]}], 18]], 
+         Text[
+          Style[
+           Row[{
+             Subscript[
+              Style["R", Italic], 
+              Row[{
+                Style["n", Italic], ", ", 
+                Style["l", Italic]}]], "(", 
+             Style["r", Italic], ")"}], 18]]}); Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->674420432],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`L$$ = 2, $CellContext`n$$ = 3, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 3, "quantum numbers  n"}, {1, 2, 3, 4}}, {{
+       Hold[$CellContext`L$$], 2, 
+       Style["l", Italic]}, 
+      Dynamic[
+       Range[0, $CellContext`n$$ - 1]]}}, Typeset`size$$ = {
+    600., {147., 153.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`n$69408$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`L$$ = 2, $CellContext`n$$ = 3}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$69408$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`L$$ >= $CellContext`n$$, $CellContext`L$$ = \
+$CellContext`n$$ - 1]; $CellContext`label = Which[$CellContext`L$$ == 0, 
+          Style["s", Italic], $CellContext`L$$ == 1, 
+          Style["p", Italic], $CellContext`L$$ == 2, 
+          Style["d", Italic], $CellContext`L$$ == 3, 
+          Style["f", Italic]]; $CellContext`p1 = Quiet[
+          
+          Plot[$CellContext`r^2 $CellContext`R[$CellContext`n$$, \
+$CellContext`L$$, $CellContext`r]^2, {$CellContext`r, 0, 
+            Part[$CellContext`rmax, $CellContext`n$$]}, PlotRange -> {{0, 
+              Part[$CellContext`rmax, $CellContext`n$$]}, {0, 
+              Part[$CellContext`yrange, $CellContext`n$$]}}, Filling -> Axis, 
+           Ticks -> Part[$CellContext`ticksmat, $CellContext`n$$, 1], 
+           TicksStyle -> Directive[16, Gray], PlotStyle -> Thick, PlotLabel -> 
+           Style[
+             Row[{
+               NumberForm[$CellContext`n$$, 1], $CellContext`label}], 18, 
+             Darker[Blue]], 
+           AxesLabel -> $CellContext`label1]]; $CellContext`av = 
+        Graphics[{Thick, Dashed, Blue, 
+           Line[{{
+              $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 0}, {
+              $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 
+              Part[$CellContext`yrange, $CellContext`n$$]}}], 
+           Text[
+            Style[
+             Row[{"\[LeftAngleBracket]", 
+               Style["r", Italic], 
+               "\!\(\*SubscriptBox[\(\[RightAngleBracket]\), \(n,  l\)]\)"}], 
+             18], {1.48 $CellContext`rav[$CellContext`n$$, $CellContext`L$$], 
+             0.8 Part[$CellContext`yrange, $CellContext`n$$]}]}]; Pane[
+         If[$CellContext`L$$ < $CellContext`n$$, 
+          GraphicsRow[{
+            Show[$CellContext`p1, $CellContext`av], 
+            Plot[
+             $CellContext`R[$CellContext`n$$, $CellContext`L$$, \
+$CellContext`r], {$CellContext`r, 0, 
+              Part[$CellContext`rmax, $CellContext`n$$]}, PlotRange -> All, 
+             Ticks -> Part[$CellContext`ticksmat, $CellContext`n$$, 2], 
+             TicksStyle -> Directive[16, Gray], PlotStyle -> Thick, 
+             AxesLabel -> $CellContext`label2]}, ImageSize -> {600, 300}], 
+          Null], ImageSize -> {600, 300}]), 
+      "Specifications" :> {{{$CellContext`n$$, 3, "quantum numbers  n"}, {1, 
+         2, 3, 4}}, {{$CellContext`L$$, 2, 
+          Style["l", Italic]}, 
+         Dynamic[
+          Range[0, $CellContext`n$$ - 1]]}}, 
+      "Options" :> {
+       ControlType -> SetterBar, 
+        TrackedSymbols :> {$CellContext`n$$, $CellContext`L$$}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{643., {202., 207.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`F[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := (($CellContext`x^$CellContext`L 
+          E^((-$CellContext`x)/2)) Factorial[$CellContext`n + $CellContext`L])
+          LaguerreL[$CellContext`n - $CellContext`L - 1, 2 $CellContext`L + 
+          1, $CellContext`x]; $CellContext`R[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`r, 
+          
+          Blank[]]] := (($CellContext`a^((-3)/2) (2/$CellContext`n^2)) (
+           Factorial[$CellContext`n - 1 - $CellContext`L]/
+           Factorial[$CellContext`n + $CellContext`L]^3)^
+          Rational[1, 2]) $CellContext`F[$CellContext`n, $CellContext`L, 
+          2 ($CellContext`r/($CellContext`n $CellContext`a))]; \
+$CellContext`rav[
+         Pattern[$CellContext`np, 
+          Blank[]], 
+         Pattern[$CellContext`Lp, 
+          Blank[]]] := $CellContext`np^2 (1. + 
+         0.5 (1. - $CellContext`Lp (($CellContext`Lp + 
+             1.)/$CellContext`np^2))); $CellContext`a = 
+       1; $CellContext`rmax = {5, 15, 30, 50, 70}; $CellContext`yrange = {
+        0.55, 0.2, 0.12, 0.07}; $CellContext`ticksmat = 
+       ConstantArray[0., {5, 2}]; 
+      Part[$CellContext`ticksmat, 1, 1] = {{0, 2, 4}, {0.25, 0.5}}; 
+      Part[$CellContext`ticksmat, 1, 2] = {{0, 2, 4}, Automatic}; 
+      Part[$CellContext`ticksmat, 2, 1] = {{0, 6, 12}, {0.05, 0.15}}; 
+      Part[$CellContext`ticksmat, 2, 2] = {{0, 6, 12}, Automatic}; 
+      Part[$CellContext`ticksmat, 3, 1] = {{0, 10, 20}, {0.05, 0.1}}; 
+      Part[$CellContext`ticksmat, 3, 2] = {{0, 10, 20}, Automatic}; 
+      Part[$CellContext`ticksmat, 4, 1] = {{0, 20, 40}, {0.03, 0.06}}; 
+      Part[$CellContext`ticksmat, 4, 2] = {{0, 20, 40}, 
+         Automatic}; $CellContext`label1 = {
+         Text[
+          Style[
+           Row[{
+             Style["r", Italic], " / ", 
+             Subscript[
+              Style["a", Italic], 0]}], 18]], 
+         Text[
+          Style[
+           Row[{Style["r", Italic]^2, " ", 
+             Subscript[
+              Style["R", Italic], 
+              Row[{
+                Style["n", Italic], ", ", 
+                Style["l", Italic]}]], "(", 
+             Style["r", Italic], ")"^2}], 18]]}; $CellContext`label2 = {
+         Text[
+          Style[
+           Row[{
+             Style["r", Italic], " / ", 
+             Subscript[
+              Style["a", Italic], 0]}], 18]], 
+         Text[
+          Style[
+           Row[{
+             Subscript[
+              Style["R", Italic], 
+              Row[{
+                Style["n", Italic], ", ", 
+                Style["l", Italic]}]], "(", 
+             Style["r", Italic], ")"}], 18]]}); Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->565511758]
+}, Open  ]],
+
+Cell["", "DetailsSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.471789840374034*^9},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell["", "SearchTermsSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Hydrogen Orbitals",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://demonstrations.wolfram.com/HydrogenOrbitals/"], None},
+ ButtonNote->
+  "http://demonstrations.wolfram.com/HydrogenOrbitals/"]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.47153250203617*^9, 3.471532538913863*^9}},
+ CellID->638582384]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Porscha McRobbie",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Porscha+\
+McRobbie"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Porscha+McRobbie"],
+ " and ",
+ ButtonBox["Eitan Geva",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Eitan+Geva"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Eitan+Geva"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.471527086129807*^9, 3.4715270914863443`*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{953, 752},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 20, \
+2012)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[59463, 1458, 374, 9, 29, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[59840, 1469, 678, 16, 29, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[60521, 1487, 340, 11, 29, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[60864, 1500, 637, 15, 29, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[61504, 1517, 844, 21, 29, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[62351, 1540, 369, 9, 29, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[62723, 1551, 1464, 31, 29, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[64190, 1584, 908, 21, 29, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 66675, 1664},
+ {"RotateAndZoomIn3D", 66784, 1667},
+ {"DragLocators", 66894, 1670},
+ {"CreateAndDeleteLocators", 67010, 1673},
+ {"SliderZoom", 67124, 1676},
+ {"GamepadControls", 67230, 1679},
+ {"AutomaticAnimation", 67343, 1682},
+ {"BookmarkAnimation", 67460, 1685}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 195, 3, 76, "DemoTitle"],
+Cell[765, 27, 33, 0, 275, "InitializationSection"],
+Cell[CellGroupData[{
+Cell[823, 31, 29, 0, 201, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[877, 35, 17016, 430, 847, "Input"],
+Cell[17896, 467, 7116, 157, 419, "Output",
+ CellID->1940978731]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25061, 630, 36, 0, 181, "ManipulateCaptionSection"],
+Cell[25100, 632, 5729, 175, 148, "ManipulateCaption",
+ CellID->47933019]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30866, 812, 28, 0, 179, "ThumbnailSection"],
+Cell[30897, 814, 7097, 156, 421, "Output",
+ CellID->1957055702]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[38031, 975, 28, 0, 149, "SnapshotsSection"],
+Cell[38062, 977, 7097, 156, 421, "Output",
+ CellID->1375646062],
+Cell[45162, 1135, 7096, 156, 421, "Output",
+ CellID->674420432],
+Cell[52261, 1293, 7096, 156, 421, "Output",
+ CellID->565511758]
+}, Open  ]],
+Cell[59372, 1452, 26, 0, 357, "DetailsSection"],
+Cell[CellGroupData[{
+Cell[59423, 1456, 37, 0, 119, "ControlSuggestionsSection"],
+Cell[59463, 1458, 374, 9, 29, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[59840, 1469, 678, 16, 29, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[60521, 1487, 340, 11, 29, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[60864, 1500, 637, 15, 29, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[61504, 1517, 844, 21, 29, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[62351, 1540, 369, 9, 29, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[62723, 1551, 1464, 31, 29, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[64190, 1584, 908, 21, 29, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[65113, 1608, 30, 0, 165, "SearchTermsSection"],
+Cell[CellGroupData[{
+Cell[65168, 1612, 31, 0, 137, "RelatedLinksSection"],
+Cell[65202, 1614, 352, 8, 23, "RelatedLinks",
+ CellID->638582384]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[65591, 1627, 25, 0, 149, "AuthorSection"],
+Cell[65619, 1629, 648, 19, 23, "Author"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

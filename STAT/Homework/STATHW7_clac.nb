@@ -1,0 +1,225 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6866,        217]
+NotebookOptionsPosition[      4849,        158]
+NotebookOutlinePosition[      5565,        184]
+CellTagsIndexPosition[      5480,        179]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"??", "ChiSquareDistribution"}]], "Input",
+ CellChangeTimes->{{3.7182769802890167`*^9, 
+  3.7182769857181854`*^9}},ExpressionUUID->"b51e231a-80ae-4a71-8c6a-\
+43de66ce84ab"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"ChiSquareDistribution\\\", \\\"[\\\", \
+StyleBox[\\\"\[Nu]\\\", \\\"TR\\\"], \\\"]\\\"}]\\) represents a \
+\\!\\(\\*SuperscriptBox[\\\"\[Chi]\\\", \\\"2\\\"]\\) distribution with \
+\\!\\(\\*StyleBox[\\\"\[Nu]\\\", \\\"TR\\\"]\\) degrees of freedom.\"\>", 
+   "MSG"], "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ChiSquareDistribution"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.7182769872774467`*^9},
+ CellTags->
+  "Info13718262587-9592823",ExpressionUUID->"f93c667d-bf66-4616-a663-\
+30117c35e126"],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     RowBox[{
+      RowBox[{"Attributes", "[", "ChiSquareDistribution", "]"}], "=", 
+      RowBox[{"{", 
+       RowBox[{"Protected", ",", "ReadProtected"}], "}"}]}]}
+   },
+   BaselinePosition->{Baseline, {1, 1}},
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}}],
+  Definition[ChiSquareDistribution],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.7182769873277082`*^9},
+ CellTags->
+  "Info13718262587-9592823",ExpressionUUID->"f6ade644-0883-4600-8a4c-\
+77881dc423cc"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"F", "[", "n_", "]"}], ":=", 
+  RowBox[{"CDF", "[", 
+   RowBox[{
+    RowBox[{"ChiSquareDistribution", "[", 
+     RowBox[{"n", "-", "1"}], "]"}], ",", " ", 
+    RowBox[{"1.5", "*", "n"}]}], "]"}]}], "\n", 
+ RowBox[{"F", "[", "36", "]"}], "\n", 
+ RowBox[{"F", "[", "37", "]"}]}], "Input",
+ CellChangeTimes->{{3.718277323577248*^9, 3.7182773325590534`*^9}, {
+  3.7182777958740993`*^9, 
+  3.7182778089341755`*^9}},ExpressionUUID->"08a566e0-572e-411c-adaa-\
+e34b07ad945e"],
+
+Cell[BoxData["0.9789168547939825`"], "Output",
+ CellChangeTimes->{
+  3.718277810270136*^9},ExpressionUUID->"b6661d31-d07d-4710-ae3e-\
+a46398682e0b"],
+
+Cell[BoxData["0.9800477594707131`"], "Output",
+ CellChangeTimes->{
+  3.718277810272052*^9},ExpressionUUID->"21b119db-3b8f-44ad-8cfe-\
+dfbc2a4b555c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"G", "[", "n_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"CDF", "[", 
+    RowBox[{
+     RowBox[{"ChiSquareDistribution", "[", 
+      RowBox[{"n", "-", "1"}], "]"}], ",", " ", 
+     RowBox[{"1.5", "*", "n"}]}], "]"}], "-", 
+   RowBox[{"CDF", "[", 
+    RowBox[{
+     RowBox[{"ChiSquareDistribution", "[", 
+      RowBox[{"n", "-", "1"}], "]"}], ",", " ", 
+     RowBox[{"0.5", "*", "n"}]}], "]"}]}]}], "\n", 
+ RowBox[{"G", "[", "10", "]"}], "\n", 
+ RowBox[{"G", "[", "11", "]"}]}], "Input",
+ CellChangeTimes->{{3.718277661852982*^9, 3.7182776788395443`*^9}, 
+   3.7182777369444666`*^9, {3.7182778006410847`*^9, 
+   3.7182778165037947`*^9}},ExpressionUUID->"e35a0e48-febc-45ff-af5e-\
+bd1b5bf31ab2"],
+
+Cell[BoxData["0.7433722836136023`"], "Output",
+ CellChangeTimes->{
+  3.718277817733302*^9},ExpressionUUID->"94690306-726c-4354-9576-\
+dd37f6ad880d"],
+
+Cell[BoxData["0.7691923952589214`"], "Output",
+ CellChangeTimes->{
+  3.718277817736277*^9},ExpressionUUID->"9fb2e90e-5268-4ec0-b50e-\
+f601d181d832"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"H", "[", "x_", "]"}], ":=", 
+  RowBox[{"N", "[", 
+   RowBox[{"CDF", "[", 
+    RowBox[{
+     RowBox[{"ChiSquareDistribution", "[", "80", "]"}], ",", "x"}], "]"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.718296526714263*^9, 
+  3.718296605476943*^9}},ExpressionUUID->"b3102dec-90ce-4a6f-ab8a-\
+732a19805f9c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"H", "[", "60.394", "]"}]], "Input",
+ CellChangeTimes->{{3.7182965771482706`*^9, 3.7182966922057977`*^9}, {
+  3.7182967367828584`*^9, 
+  3.7182967911781864`*^9}},ExpressionUUID->"03b89025-59fc-4d31-80d4-\
+9b2a9b1b3332"],
+
+Cell[BoxData["0.05002484167906706`"], "Output",
+ CellChangeTimes->{{3.718296588210681*^9, 3.7182966926084585`*^9}, {
+  3.7182967405914593`*^9, 
+  3.718296791748637*^9}},ExpressionUUID->"806cc282-9cf1-4ab6-bf2c-\
+ed369c3eb9ab"]
+}, Open  ]]
+},
+WindowSize->{759, 647},
+WindowMargins->{{Automatic, 377}, {Automatic, 42}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (2017\:5e743\:670813\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info13718262587-9592823"->{
+  Cell[800, 30, 662, 15, 
+  44, "Print", "ExpressionUUID" -> "f93c667d-bf66-4616-a663-30117c35e126",
+   CellTags->"Info13718262587-9592823"],
+  Cell[1465, 47, 597, 17, 
+  22, "Print", "ExpressionUUID" -> "f6ade644-0883-4600-8a4c-77881dc423cc",
+   CellTags->"Info13718262587-9592823"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info13718262587-9592823", 5171, 169}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 195, 4, 30, "Input", "ExpressionUUID" -> \
+"b51e231a-80ae-4a71-8c6a-43de66ce84ab"],
+Cell[CellGroupData[{
+Cell[800, 30, 662, 15, 44, "Print", "ExpressionUUID" -> \
+"f93c667d-bf66-4616-a663-30117c35e126",
+ CellTags->"Info13718262587-9592823"],
+Cell[1465, 47, 597, 17, 22, "Print", "ExpressionUUID" -> \
+"f6ade644-0883-4600-8a4c-77881dc423cc",
+ CellTags->"Info13718262587-9592823"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2111, 70, 502, 13, 87, "Input", "ExpressionUUID" -> \
+"08a566e0-572e-411c-adaa-e34b07ad945e"],
+Cell[2616, 85, 148, 3, 30, "Output", "ExpressionUUID" -> \
+"b6661d31-d07d-4710-ae3e-a46398682e0b"],
+Cell[2767, 90, 148, 3, 30, "Output", "ExpressionUUID" -> \
+"21b119db-3b8f-44ad-8cfe-dfbc2a4b555c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2952, 98, 723, 19, 87, "Input", "ExpressionUUID" -> \
+"e35a0e48-febc-45ff-af5e-bd1b5bf31ab2"],
+Cell[3678, 119, 148, 3, 30, "Output", "ExpressionUUID" -> \
+"94690306-726c-4354-9576-dd37f6ad880d"],
+Cell[3829, 124, 148, 3, 30, "Output", "ExpressionUUID" -> \
+"9fb2e90e-5268-4ec0-b50e-f601d181d832"]
+}, Open  ]],
+Cell[3992, 130, 345, 10, 47, "Input", "ExpressionUUID" -> \
+"b3102dec-90ce-4a6f-ab8a-732a19805f9c"],
+Cell[CellGroupData[{
+Cell[4362, 144, 242, 5, 30, "Input", "ExpressionUUID" -> \
+"03b89025-59fc-4d31-80d4-9b2a9b1b3332"],
+Cell[4607, 151, 226, 4, 63, "Output", "ExpressionUUID" -> \
+"806cc282-9cf1-4ab6-bf2c-ed369c3eb9ab"]
+}, Open  ]]
+}
+]
+*)
+
